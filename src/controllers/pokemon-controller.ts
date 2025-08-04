@@ -33,7 +33,7 @@ export class PokemonController {
     catch (error) {
       res.status(500).json({
         success: false,
-        error: "Erreur lors de la récupération des Pokémons",
+        error: `Erreur lors de la récupération des Pokémons ${error}`,
       });
     }
   }
@@ -45,7 +45,7 @@ export class PokemonController {
     try {
       const id = Number.parseInt(req.params.id);
 
-      if (isNaN(id)) {
+      if (Number.isNaN(id)) {
         res.status(400).json({
           success: false,
           error: "ID invalide",
@@ -71,7 +71,7 @@ export class PokemonController {
     catch (error) {
       res.status(500).json({
         success: false,
-        error: "Erreur lors de la récupération du Pokémon",
+        error: `Erreur lors de la récupération du Pokémon  : ${error}`,
       });
     }
   }
@@ -93,7 +93,7 @@ export class PokemonController {
     catch (error) {
       res.status(500).json({
         success: false,
-        error: "Erreur lors de la récupération des Pokémons par type",
+        error: `Erreur lors de la récupération des Pokémons par type : ${error}`,
       });
     }
   }
@@ -113,7 +113,7 @@ export class PokemonController {
     catch (error) {
       res.status(500).json({
         success: false,
-        error: "Erreur lors de la récupération des statistiques",
+        error: ` Erreur lors de la récupération des statistiques : ${error}`,
       });
     }
   }

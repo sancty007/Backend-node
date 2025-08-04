@@ -3,7 +3,7 @@ import express from "express";
 import type { MessageResponse } from "../types/index.js";
 
 import emojiRoutes from "../routes/emojiRoutes.js";
-import pokemonRoutes from "../routes/pokemonRoutes.js";
+import pokemonRoutes from "../routes/pokemon-routes.js";
 
 const router = express.Router();
 

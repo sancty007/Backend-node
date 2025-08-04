@@ -1,7 +1,6 @@
-// eslint-disable-next-line unicorn/filename-case
 import type { Request, Response } from "express";
 
-import { EmojiService } from "../services/emojiService.js";
+import { EmojiService } from "../services/emoji-service.js";
 
 export class EmojiController {
   /**
@@ -20,7 +19,7 @@ export class EmojiController {
     catch (error) {
       res.status(500).json({
         success: false,
-        error: "Erreur lors de la récupération des emojis",
+        error: `Erreur lors de la récupération des emojis : ${error}`,
       });
     }
   }
@@ -40,7 +39,7 @@ export class EmojiController {
     catch (error) {
       res.status(500).json({
         success: false,
-        error: "Erreur lors de la récupération de l'emoji aléatoire",
+        error: `Erreur lors de la récupération de l'emoji aléatoire : ${error}`,
       });
     }
   }
@@ -52,7 +51,7 @@ export class EmojiController {
     try {
       const count = req.params.count ? Number.parseInt(req.params.count) : 5;
 
-      if (isNaN(count) || count < 1 || count > 20) {
+      if (Number.isNaN(count) || count < 1 || count > 20) {
         res.status(400).json({
           success: false,
           error: "Le nombre doit être entre 1 et 20",
@@ -71,7 +70,7 @@ export class EmojiController {
     catch (error) {
       res.status(500).json({
         success: false,
-        error: "Erreur lors de la récupération des emojis aléatoires",
+        error: `Erreur lors de la récupération des emojis aléatoires : ${error}`,
       });
     }
   }
@@ -102,7 +101,7 @@ export class EmojiController {
     catch (error) {
       res.status(500).json({
         success: false,
-        error: "Erreur lors de la récupération des emojis par catégorie",
+        error: `Erreur lors de la récupération des emojis par catégorie : ${error}`,
       });
     }
   }
