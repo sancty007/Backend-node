@@ -2,7 +2,7 @@ import type { Request, Response } from "express";
 
 import type { PokemonQuery } from "../types/index.js";
 
-import { PokemonService } from "../services/pokemonService.js";
+import { PokemonService } from "../services/pokemon-service.js";
 
 export class PokemonController {
   /**
