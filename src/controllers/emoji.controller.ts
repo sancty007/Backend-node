@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 
-import { EmojiService } from "../services/emoji-service.js";
+import { EmojiService } from "../services/emoji.service.js";
 
 export class EmojiController {
   /**

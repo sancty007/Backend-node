@@ -92,4 +92,22 @@ export class PokemonService {
       },
     };
   }
+
+  // modifier les données d'un pokemon
+
+  static updatePokemonById(id: number, updateData: Partial<Pokemon>): Pokemon | null {
+    const pokemonIndex = pokemons.findIndex(pokemon => pokemon.id === id);
+
+    if (pokemonIndex === -1) {
+      return null;
+    }
+
+    pokemons[pokemonIndex] = {
+      ...pokemons[pokemonIndex],
+      ...updateData,
+      id, // Ensure ID is not overwritten
+    };
+
+    return pokemons[pokemonIndex];
+  }
 }

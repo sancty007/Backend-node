@@ -2,8 +2,9 @@ import express from "express";
 
 import type { MessageResponse } from "../types/index.js";
 
-import emojiRoutes from "../routes/emojiRoutes.js";
-import pokemonRoutes from "../routes/pokemon-routes.js";
+import authRoutes from "../routes/auth.routes.js";
+// import emojiRoutes from "../routes/emoji-routes.js";
+import pokemonRoutes from "../routes/pokemon.routes.js";
 
 const router = express.Router();
 
@@ -13,7 +14,7 @@ router.get<object, MessageResponse>("/", (req, res) => {
   });
 });
 
-router.use("/emojis", emojiRoutes);
 router.use("/pokemons", pokemonRoutes);
+router.use("/auth", authRoutes);
 
 export default router;
