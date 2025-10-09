@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-api-name-deployment
+  labels:
+    app: my-api-name
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-api-name
+  template:
+    metadata:
+      labels:
+        app: my-api-name
+    spec:
+      containers:
+        - name: my-api-name
+          image: jupsy/pokemon-api:latest
+          ports:
+            - containerPort: 3000
