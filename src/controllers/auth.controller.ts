@@ -20,7 +20,6 @@ export async function loginUser(req: Request, res: Response): Promise<void> {
       return;
     }
 
-    // Générer un token avec id + role
     const token = jwt.sign({ id: user._id, role: user.role }, JWT_SECRET, {
       expiresIn: "1h",
     });
