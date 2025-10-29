@@ -1,4 +1,4 @@
-# 🚀 API Express avec TypeScript - Structure Modulaire
+# API Express avec TypeScript - Structure Modulaire
 
 Une API REST moderne construite avec Express.js et TypeScript, organisée selon les meilleures pratiques d'architecture modulaire.
 
@@ -12,7 +12,7 @@ Une API REST moderne construite avec Express.js et TypeScript, organisée selon 
 - 🧪 **Prêt pour les tests** avec structure modulaire
 - 📊 **Statistiques et métriques** intégrées
 
-## 🎮 Endpoints Disponibles
+## Endpoints Disponibles
 
 ### Pokémon API
 
@@ -28,159 +28,111 @@ Une API REST moderne construite avec Express.js et TypeScript, organisée selon 
 - `GET /api/v1/emojis/random/:count` - Plusieurs aléatoires
 - `GET /api/v1/emojis/category/:category` - Par catégorie
 
-## 🚀 Installation et Démarrage
+## Installation et Démarrage
 
-```bash
-# Installation des dépendances
-pnpm install
-
-# Démarrage en mode développement
-pnpm dev
-
-# Build pour production
-pnpm build
-
-# Démarrage en production
-pnpm start
-
-# Tests
-pnpm test
-
-# Linting
-pnpm lint
-```
-
-## 📁 Structure du Projet
-
-```
-src/
-├── api/                    # Point d'entrée principal
-├── config/                # Configuration
-├── controllers/           # Contrôleurs HTTP
-├── data/                  # Données statiques
-├── middleware/            # Middlewares personnalisés
-├── routes/               # Définition des routes
-├── services/             # Logique métier
-├── types/                # Types TypeScript
-├── utils/                # Utilitaires
-├── app.ts               # Configuration Express
-└── index.ts             # Point d'entrée
-```
-
-## 🏗️ Architecture
-
-### Principe de Séparation des Responsabilités
-
-1. **Routes** : Définition des endpoints
-2. **Controllers** : Gestion des requêtes HTTP
-3. **Services** : Logique métier pure
-4. **Types** : Définitions TypeScript centralisées
-5. **Validation** : Validation des données avec Zod
-
-### Flux de Données
-
-```
-HTTP Request → Routes → Controllers → Services → Data
-     ↑                                    ↓
-HTTP Response ← Controllers ← Services ← Data
-```
-
-## 🔧 Configuration
-
-### Variables d'Environnement
-
-```env
-NODE_ENV=development
-PORT=3000
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=pokemon_api
-DB_USER=postgres
-DB_PASSWORD=
-```
-
-## 🧪 Tests
-
-```bash
-# Lancer tous les tests
-pnpm test
-
-# Tests en mode watch
-pnpm test:watch
-
-# Tests avec couverture
-pnpm test:coverage
-```
-
-## 📝 Exemples d'Utilisation
-
-### Récupérer des Pokémons avec pagination
-
-```bash
-curl "http://localhost:3000/api/v1/pokemons?page=1&limit=5"
-```
-
-### Filtrer par type
-
-```bash
-curl "http://localhost:3000/api/v1/pokemons?type=Fire"
-```
-
-### Récupérer un emoji aléatoire
-
-```bash
-curl "http://localhost:3000/api/v1/emojis/random"
-```
-
-## 🚀 Déploiement
-
-### Production
-
-```bash
-# Build
-pnpm build
-
-# Démarrage
-pnpm start
-```
-
-### Docker (optionnel)
-
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY dist ./dist
-EXPOSE 3000
-CMD ["npm", "start"]
-```
-
-## 📚 Documentation
-
-- [Structure du Projet](./docs/STRUCTURE.md)
-- [Guide d'Architecture](./docs/ARCHITECTURE.md)
-- [API Reference](./docs/API.md)
-
-## 🤝 Contribution
-
-1. Fork le projet
-2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
-## 🙏 Remerciements
-
-- [Express.js](https://expressjs.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Zod](https://zod.dev/)
-- [Vitest](https://vitest.dev/)
+Parfait ! Voici une **version simplifiée et complète du README**, prête à copier-coller, qui te permet de lancer et tester ton backend sur Kubernetes avec seulement quelques commandes.
 
 ---
+
+### – Lancer et déployer le projet Backend-node
+
+### 🔹 1️⃣ Pré-requis
+
+- **Node.js** + **pnpm** ou **npm**
+- **Docker Desktop** avec **Kubernetes activé**
+- **kubectl** installé
+
+---
+
+### 🔹 2️⃣ Lancer en local (optionnel)
+
+```bash
+# Installer les dépendances
+pnpm install
+
+# Lancer le serveur
+pnpm start
+```
+
+L’application écoute sur `http://localhost:3000`.
+
+---
+
+### 🔹 3️⃣ Déployer avec Kubernetes (Docker Desktop)
+
+### Étape 1 – Construire l’image Docker
+
+```bash
+docker build -t backend-node:latest .
+```
+
+### Étape 2 – Appliquer les manifests Kubernetes
+
+```bash
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+```
+
+### Étape 3 – Vérifier que les pods et services sont prêts
+
+```bash
+kubectl get pods
+kubectl get svc
+```
+
+> Repère le **NodePort** dans le service, par exemple : `3000:32542/TCP`.
+
+### Étape 4 – Accéder à l’application
+
+Ouvre ton navigateur sur :
+
+```
+http://localhost:<NodePort>
+```
+
+> Exemple : si `kubectl get svc` montre `3000:32542`, ouvre `http://localhost:32542`.
+
+---
+
+### 🔹 4️⃣ Vérifier les logs du pod
+
+```bash
+kubectl logs <nom-du-pod>
+```
+
+> Par ex. :
+> `kubectl logs my-api-name-deployment-786d5bf76-mg5gj`
+
+---
+
+### 🔹 5️⃣ Mettre à jour le déploiement après modification du code
+
+```bash
+docker build -t backend-node:latest .
+kubectl rollout restart deployment/my-api-name-deployment
+```
+
+> Kubernetes redémarre le pod avec la nouvelle image.
+
+---
+
+### 🔹 6️⃣ Astuce rapide
+
+Avec ces 3 commandes, tu peux lancer et tester ton backend :
+
+```bash
+docker build -t backend-node:latest .
+kubectl apply -f k8s/deployment.yaml -f k8s/service.yaml
+kubectl port-forward svc/my-api-name-service 3000:3000
+```
+
+Ensuite, visite : `http://localhost:3000`.
+
+---
+
+💡 **Note :**
+
+- Pour NodePort, utilise le port affiché par `kubectl get svc`.
+- Pour ClusterIP, utilise `kubectl port-forward` pour exposer localement le service.
 
 **Développé avec ❤️ et TypeScript**
