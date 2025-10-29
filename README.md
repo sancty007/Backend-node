@@ -1,16 +1,16 @@
-# API Express avec TypeScript - Structure Modulaire
+# API Express avec TypeScript
 
 Une API REST moderne construite avec Express.js et TypeScript, organisée selon les meilleures pratiques d'architecture modulaire.
 
 ## ✨ Fonctionnalités
 
-- 🏗️ **Architecture modulaire** avec séparation des responsabilités
-- 🔒 **Validation des données** avec Zod
-- 🛡️ **Gestion d'erreurs centralisée**
-- 📝 **TypeScript strict** avec types définis
-- 🎯 **API RESTful** avec pagination et filtres
-- 🧪 **Prêt pour les tests** avec structure modulaire
-- 📊 **Statistiques et métriques** intégrées
+- **Architecture modulaire** avec séparation des responsabilités
+- **Validation des données** avec Zod
+- **Gestion d'erreurs centralisée**
+- **TypeScript strict** avec types définis
+- **API RESTful** avec pagination et filtres
+- **Prêt pour les tests** avec structure modulaire
+- **Statistiques et métriques** intégrées
 
 ## Endpoints Disponibles
 
@@ -130,7 +130,7 @@ Ensuite, visite : `http://localhost:3000`.
 
 ---
 
-💡 **Note :**
+ **Note :**
 
 - Pour NodePort, utilise le port affiché par `kubectl get svc`.
 - Pour ClusterIP, utilise `kubectl port-forward` pour exposer localement le service.
