@@ -18,5 +18,5 @@ kubectl apply -f k8s/service.yaml
 echo "Getting pods..."
 kubectl get pods
 
-echo "Getting services..."
+echo "Getting services...."
 kubectl get services
