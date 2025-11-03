@@ -8,7 +8,7 @@ spec:
   selector:
     app: my-api-name
   ports:
-    -protocol: TCP
-    port: 3000
-    targetPort: 3000
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
   type: NodePort # # Service type : NodePort, ClusterIP, LoadBalancer
