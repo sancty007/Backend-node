@@ -29,9 +29,6 @@ Une API REST moderne construite avec Express.js et TypeScript, organisée selon 
 - `GET /api/v1/emojis/category/:category` - Par catégorie
 
 ## Installation et Démarrage
-
-.
-
 ---
 
 ### – Lancer et déployer le projet Backend-node
