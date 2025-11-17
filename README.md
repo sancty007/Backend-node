@@ -30,7 +30,7 @@ Une API REST moderne construite avec Express.js et TypeScript, organisée selon 
 
 ## Installation et Démarrage
 
-Parfait ! Voici une **version simplifiée et complète du README**, prête à copier-coller, qui te permet de lancer et tester ton backend sur Kubernetes avec seulement quelques commandes.
+.
 
 ---
 
